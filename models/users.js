@@ -41,15 +41,6 @@ module.exports = sequelize => {
       comment: null,
       field: "phone"
     },
-    relative_patient: {
-      type: DataTypes.STRING(255),
-      allowNull: true,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "relative_patient"
-    },
     email: {
       type: DataTypes.STRING(255),
       allowNull: true,
@@ -94,6 +85,24 @@ module.exports = sequelize => {
       autoIncrement: false,
       comment: null,
       field: "code"
+    },
+    fast: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+      defaultValue: null,
+      primaryKey: false,
+      autoIncrement: false,
+      comment: null,
+      field: "fast"
+    },
+    thrombolysis: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+      defaultValue: null,
+      primaryKey: false,
+      autoIncrement: false,
+      comment: null,
+      field: "thrombolysis"
     },
 
     // // -----------------------
