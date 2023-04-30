@@ -1,0 +1,25 @@
+{
+  "development": {
+    "username": "root",
+    "password": "radiant@123",
+    "database": "rpl_spd2",
+    "host": "116.68.200.97",
+    "port": "60906",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "rpl_spd2",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "radiant@123",
+    "database": "rpl_spd2",
+    "host": "116.68.200.97",
+    "port": "60906",
+    "dialect": "mysql"
+  }
+}
