@@ -3,6 +3,13 @@ const {
 } = require('sequelize');
 const Sequelize = require("sequelize");
 
+// Name
+// Designation
+// Specialty
+// Institute
+// Contact number
+// email
+
 module.exports = sequelize => {
   const attributes = {
     id: {
@@ -13,6 +20,60 @@ module.exports = sequelize => {
       autoIncrement: true,
       comment: null,
       field: "id"
+    },
+    name: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+      defaultValue: null,
+      primaryKey: false,
+      autoIncrement: false,
+      comment: null,
+      field: "name"
+    },
+    designation: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+      defaultValue: null,
+      primaryKey: false,
+      autoIncrement: false,
+      comment: null,
+      field: "designation"
+    },
+    specialty: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+      defaultValue: null,
+      primaryKey: false,
+      autoIncrement: false,
+      comment: null,
+      field: "specialty"
+    },
+    institute: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+      defaultValue: null,
+      primaryKey: false,
+      autoIncrement: false,
+      comment: null,
+      field: "institute"
+    },
+    mobile: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+      defaultValue: null,
+      primaryKey: false,
+      autoIncrement: false,
+      comment: null,
+      field: "mobile"
+    },
+    email: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+      defaultValue: null,
+      primaryKey: false,
+      autoIncrement: false,
+      comment: null,
+      field: "email"
     },
     nocturnal_polyuria: {
       type: DataTypes.STRING(255),
