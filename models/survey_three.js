@@ -21,7 +21,6 @@ module.exports = sequelize => {
       comment: null,
       field: "id"
     },
-   
     name: {
       type: DataTypes.STRING(255),
       allowNull: true,
@@ -31,86 +30,41 @@ module.exports = sequelize => {
       comment: null,
       field: "name"
     },
-    designation: {
+    mio_code: {
       type: DataTypes.STRING(255),
       allowNull: true,
       defaultValue: null,
       primaryKey: false,
       autoIncrement: false,
       comment: null,
-      field: "designation"
+      field: "mio_code"
     },
-    specialty: {
+    selfi_photo: {
       type: DataTypes.STRING(255),
       allowNull: true,
       defaultValue: null,
       primaryKey: false,
       autoIncrement: false,
       comment: null,
-      field: "specialty"
+      field: "selfi_photo"
     },
-    institute: {
+    wish: {
       type: DataTypes.STRING(255),
       allowNull: true,
       defaultValue: null,
       primaryKey: false,
       autoIncrement: false,
       comment: null,
-      field: "institute"
+      field: "wish"
     },
-    mobile: {
+    signature_photo: {
       type: DataTypes.STRING(255),
       allowNull: true,
       defaultValue: null,
       primaryKey: false,
       autoIncrement: false,
       comment: null,
-      field: "mobile"
-    },
-    email: {
-      type: DataTypes.STRING(255),
-      allowNull: true,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "email"
-    },
-    nocturnal_polyuria: {
-      type: DataTypes.STRING(255),
-      allowNull: true,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "nocturnal_polyuria"
-    },
-    lower_production: {
-      type: DataTypes.STRING(255),
-      allowNull: true,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "lower_production"
-    },
-    minirin_melt: {
-      type: DataTypes.STRING(255),
-      allowNull: true,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "minirin_melt"
-    },
-    minirin_melt_level: {
-      type: DataTypes.STRING(255),
-      allowNull: true,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "minirin_melt_level"
+      field: "signature_photo"
     },
     created_at: {
       type: DataTypes.DATE,
@@ -132,12 +86,12 @@ module.exports = sequelize => {
     },
   };
   const options = {
-    tableName: "question_two",
+    tableName: "survey_three",
     comment: "",
     indexes: [],
     createdAt: false,
     updatedAt: false
   };
-  const QuestionTwo = sequelize.define("QuestionTwo", attributes, options);
+  const QuestionTwo = sequelize.define("SurveyThree", attributes, options);
   return QuestionTwo;
 };
