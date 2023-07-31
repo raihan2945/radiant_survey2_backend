@@ -86,7 +86,6 @@ exports.Save = async (req, res, next) => {
     selfi_photo: profilePhoto,
   };
 
-  // console.log("body data is : ", insert_data)
 
   const data = await SurveyThree.create(insert_data).catch(errorHandler);
   return res.status(200).json({
