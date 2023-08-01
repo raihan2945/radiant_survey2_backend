@@ -57,7 +57,7 @@ exports.Save = async (req, res, next) => {
   const signaturePhoto = `${mio_code}_${name}_${getRandomInt()}${getRandomInt()}.jpeg`;
 
   // Save the image file to your desired directory
-  fs.writeFile(`uploads/profiles/${profilePhoto}`, imageBuffer, (err) => {
+  fs.writeFile(`public/uploads/profiles/${profilePhoto}`, imageBuffer, (err) => {
     if (err) {
       console.error("Error saving image:", err);
       return res.status(500).json({ error: "Failed to save image" });
@@ -65,7 +65,7 @@ exports.Save = async (req, res, next) => {
     console.log("image uploaded successfully");
   });
   fs.writeFile(
-    `uploads/signatures/${signaturePhoto}`,
+    `public/uploads/signatures/${signaturePhoto}`,
     signatureImageBuffer,
     (err) => {
       if (err) {
