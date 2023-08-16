@@ -35,12 +35,18 @@ exports.Save = async (req, res, next) => {
 
   const { name, mio_code, wish, signature, profile } = req.body;
 
+  console.log("profile is :", profile)
+
   // Decode the Base64 image data
-  const base64Data = profile.replace(/^data:image\/(png|jpeg|jpg);base64,/, "");
-  if (!base64Data) {
-    return res.status(400).json({ error: "Invalid profile image format" });
+  let imageBuffer = null
+  if (profile) {
+    const base64Data = profile.replace(/^data:image\/(png|jpeg|jpg);base64,/, "");
+    if (!base64Data) {
+      return res.status(400).json({ error: "Invalid profile image format" });
+    }
+
+    imageBuffer = Buffer.from(base64Data, "base64");
   }
-  const imageBuffer = Buffer.from(base64Data, "base64");
 
   // Decode the Base64 image data
   const signatureBase64Data = signature?.replace(
@@ -53,17 +59,22 @@ exports.Save = async (req, res, next) => {
   const signatureImageBuffer = Buffer.from(signatureBase64Data, "base64");
 
   // Generate a unique filename (e.g., using a timestamp)
-  const profilePhoto = `${mio_code}_${name}_${getRandomInt()}${getRandomInt()}.jpeg`;
+  const profilePhoto = imageBuffer ? `${mio_code}_${name}_${getRandomInt()}${getRandomInt()}.jpeg` : "";
   const signaturePhoto = `${mio_code}_${name}_${getRandomInt()}${getRandomInt()}.jpeg`;
 
+  console.log("image buffer is :", imageBuffer)
+
   // Save the image file to your desired directory
-  fs.writeFile(`public/uploads/profiles/${profilePhoto}`, imageBuffer, (err) => {
-    if (err) {
-      console.error("Error saving image:", err);
-      return res.status(500).json({ error: "Failed to save image" });
-    }
-    console.log("image uploaded successfully");
-  });
+  if (profile && imageBuffer) {
+    fs.writeFile(`public/uploads/profiles/${profilePhoto}`, imageBuffer, (err) => {
+      if (err) {
+        console.error("Error saving image:", err);
+        return res.status(500).json({ error: "Failed to save image" });
+      }
+      console.log("image uploaded successfully");
+    });
+  }
+
   fs.writeFile(
     `public/uploads/signatures/${signaturePhoto}`,
     signatureImageBuffer,
